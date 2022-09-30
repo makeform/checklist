@@ -1,0 +1,42 @@
+div
+  div(ld="base error-root",plug="widget")
+    .border
+      .item(ld-each="item")
+        .cell(ld="idx",style="width:3em")
+        .mr-4
+          div(ld="name")
+          div
+            .text-sm.text-danger(ld-each="note")
+        .cell.check(ld="check",data-name="yes",style="width:3em"): i.i-check
+        .cell.check(ld="check",data-name="no",style="width:3em"): i.i-close
+
+    .mt-2: .text-danger(ld-each="error")
+  style(type="text/css"): :stylus
+    .item
+      display: grid
+      padding: .5em
+      grid-template-columns: 3em 1fr 3em 3em
+      & > div
+        padding: .25em
+      border-bottom: 1px solid #e5e6e7
+      &:last-child
+        border-bottom: 0
+      .cell
+        display: flex
+        align-items: center
+        justify-content: center
+      .check
+        cursor: pointer
+        color: #d1d2d3
+        border-radius: .25em
+        border: 1px solid transparent
+      .check:hover
+        background: rgba(255,255,0,.25)
+      .check.active[data-name=yes]
+        color: rgb(0,192,0)
+        border-color: rgb(0,192,0)
+      .check.active[data-name=no]
+        color: rgb(255,0,0)
+        border-color: rgb(255,0,0)
+
+  script(type="@plotdb/block"): include:lsc index.ls
