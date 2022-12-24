@@ -1,1 +1,5 @@
-# checklist
+# @makeform/checklist
+
+## License
+
+MIT
