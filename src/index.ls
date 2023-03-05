@@ -31,7 +31,7 @@ mod = ({root, ctx, data, parent, t}) ->
           key: -> it.description
           view:
             text:
-              name: ({ctx}) -> ctx.description or ctx
+              name: ({ctx}) -> t(ctx.description or ctx)
               idx: ({ctx}) -> ctx.idx
             handler:
               note:
