@@ -36,7 +36,7 @@ mod = ({root, ctx, data, parent, t}) ->
             handler:
               note:
                 list: ({ctx}) -> ctx.note or []
-                key: -> data
+                key: -> it
                 handler: ({node, data}) ->
                   v = t data
                   node.innerText = if v => "• #{v}" else ''
