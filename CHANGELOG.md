@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.0.4
+
+ - prevent user from editing in readonly mode
+
+
 ## v1.0.3
 
  - use `mf-note` to replace styling in note-related tag.

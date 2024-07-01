@@ -46,7 +46,8 @@ mod = ({root, ctx, data, parent, t}) ->
                 desc = ctx.description or ctx
                 node.classList.toggle \active, (lc.value[desc] == name)
             action: click:
-              check: ({node, ctx, views}) ->
+              check: ({node, ctx, views}) ~>
+                if !!@mod.info.meta.readonly => return
                 name = node.getAttribute(\data-name)
                 desc = ctx.description or ctx
                 lc.value[desc] = if lc.value[desc] == name => '' else name
