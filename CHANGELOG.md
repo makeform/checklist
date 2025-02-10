@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.0.5
+
+ - support checking against correct answer
+
+
 ## v1.0.4
 
  - prevent user from editing in readonly mode

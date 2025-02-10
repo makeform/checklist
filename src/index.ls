@@ -34,6 +34,13 @@ mod = ({root, ctx, data, parent, t}) ->
               name: ({ctx}) -> t(ctx.description or ctx)
               idx: ({ctx}) -> ctx.idx
             handler:
+              "@": ({node, ctx}) ->
+                n = ctx.description or ctx
+                error = if !ctx.check? => false
+                else if !lc.value[n]? => false
+                else if ((lc.value[n] == \yes) xor ctx.check == true) => true
+                else false
+                node.classList.toggle \error, error
               note:
                 list: ({ctx}) -> ctx.note or []
                 key: -> it
@@ -56,6 +63,21 @@ mod = ({root, ctx, data, parent, t}) ->
 
 
   render: -> if @mod.child.view => @mod.child.view.render!
+  validate: ->
+    v = @value! or {}
+    invalid-length = @mod.info.config.items
+      .filter (d) ->
+        r = v[d.description or d]
+        if !d.check? => return false
+        d.check == true xor r == \yes
+      .length
+    if invalid-length => return ["error"]
+    return []
+  is-equal: (u = {}, v = {}) ->
+    !@mod.info.config.items
+      .filter (d,i) -> (u[d.description or d] != v[d.description or d])
+      .length
+
   is-empty: (v) ->
     if !(v and typeof(v) == \object) => return true
     !!@mod.info.config.items
