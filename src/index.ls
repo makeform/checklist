@@ -68,6 +68,7 @@ mod = ({root, ctx, data, parent, t}) ->
     invalid-length = @mod.info.config.items
       .filter (d) ->
         r = v[d.description or d]
+        # TODO isn't this also check if r is defined?
         if !d.check? => return false
         d.check == true xor r == \yes
       .length

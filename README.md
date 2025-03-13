@@ -1,11 +1,16 @@
 # @makeform/checklist
 
-Fields:
+“A table-style checklist widget that displays a list of items for users to review. Each item can be either ‘checked’ or ‘rejected’ based on the user’s self-assessment, and the acceptable options are configurable.”
+
+
+## Configs
 
  - `items`: a list of string / objects for users to check. For object entries, it contains following fields:
-   - `description`: the checklist item text.
+   - `description`: string. the checklist item text. mandatory.
    - `note`: a list of string as the note of this item.
-   - `check`: optional. if set, should be either true or false. Use to decide the correct answer and this widget will be valid only if all items are checked as expected.
+   - `check`: optional. if set, should be either true or false.
+     - If not provided, the user’s choice will always be considered correct regardless of selection.
+     - Use to decide the correct answer and this widget will be valid only if all items are checked as expected.
 
 
 Example configuration:
