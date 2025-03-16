@@ -1,5 +1,11 @@
 # Change Logs
 
+## v2.0.0 (upcoming)
+
+ - tweak DOM based on updated `@makeform/common` DOM structure.
+ - head ( title / desc / limitation ) added due to DOM structure tweaking
+
+
 ## v1.0.5
 
  - support checking against correct answer
