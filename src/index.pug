@@ -3,10 +3,17 @@ div
   script(type="@plotdb/block"): include:lsc index.ls
   div(plug="body",ld="base")
     .border: .item(ld-each="item")
-      .cell(ld="idx",style="width:3em")
-      .mr-4
-        div(ld="name")
-        div: .text-sm.mf-note(ld-each="note")
+      .cell(style="width:3em")
+        i.i-close.text-sm.ml-1.cps-hover.cps-remove(ld="remove",style="margin-left:-1em")
+        span(ld="idx")
+      .mr-4.d-flex.justify-content-between.align-items-center
+        div
+          div(ld="name")
+          div: .text-sm.mf-note(ld-each="note"): div(ld="note")
+          .cps-ctrl: label.d-flex.g-2.mb-0
+            input(type="checkbox",ld="checktype")
+            .text-sm.text-muted #[span(t="checktype.info.0")] #[i.i-close] #[span(t="checktype.info.1")]
       .cell.check(ld="check",data-name="yes",style="width:3em"): i.i-check
       .cell.check(ld="check",data-name="no",style="width:3em"): i.i-close
+    .clickable.rounded-sm.bg-dark.cps-add.font-weight-bold.mt-2(ld="add") ＋
     .m-edit.mt-2: .text-danger(ld-each="error")

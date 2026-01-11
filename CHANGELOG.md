@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.0.0
+
+ - support `@grantdash/composer` host
+
+
 ## v2.0.0
 
  - tweak DOM based on updated `@makeform/common` DOM structure.
