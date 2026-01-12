@@ -2,9 +2,9 @@ div
   style(type="text/css"): include:stylus index.styl
   script(type="@plotdb/block"): include:lsc index.ls
   div(plug="body",ld="base")
-    .border: .item(ld-each="item")
+    .border: .item.cps-hover-host(ld-each="item")
       .cell(style="width:3em")
-        i.i-close.text-sm.ml-1.cps-hover.cps-remove(ld="remove",style="margin-left:-1em")
+        i.i-close.text-sm.ml-1.cps-hover-reveal.cps-remove(ld="remove",style="margin-left:-1em")
         span(ld="idx")
       .mr-4.d-flex.justify-content-between.align-items-center
         div
