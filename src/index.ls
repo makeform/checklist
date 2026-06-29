@@ -123,7 +123,7 @@ mod = ({root, ctx, data, parent, i18n, t}) ->
                 remove: ({ctx}) ->
                   hitf!get!{}config.items = items!filter -> it.idx != ctx.idx
                   hitf!set!
-                name: hitf!edit obj: ({ctx}) -> ctx.{}description
+                name: hitf!edit path: \description, from-ctx: true
                 check: ({node, ctx, views}) ~>
                   if !!hitf!get!readonly => return
                   [name, key] = [node.dataset.name, getkey ctx]
