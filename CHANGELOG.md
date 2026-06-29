@@ -1,5 +1,11 @@
 # Change Logs
 
+## v3.0.2
+
+ - fix bug: string can't be edited. use `fromCtx` to simplify this implementation
+ - upgrade dependencies
+
+
 ## v3.0.1
 
  - use cps-hover-host and cps-hover-reveal to replace cps-hover class
