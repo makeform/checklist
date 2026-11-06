@@ -20,6 +20,10 @@
     border: 1px solid transparent
   .check:hover
     background: rgba(255,255,0,.25)
+  .check.disabled
+    cursor: default
+    &:hover
+      background: none
   .check.active[data-name=yes]
     color: rgb(0,192,0)
     border-color: rgb(0,192,0)

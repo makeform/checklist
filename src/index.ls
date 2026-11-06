@@ -8,6 +8,8 @@ mod = ({root, ctx, data, parent, t}) ->
   init: ->
     lc = @mod.child
     lc.value = {}
+    # answers can't be changed when widget is readonly or in view mode
+    is-readonly = ~> !!@mod.info.meta.readonly or @mode! == \view
     view = {}
     @on \change, (v) ~>
       lc.value = {} <<< (v or {})
@@ -48,13 +50,14 @@ mod = ({root, ctx, data, parent, t}) ->
                   v = t data
                   node.innerText = if v => "• #{v}" else ''
                   node.classList.toggle \d-none, !v
-              check: ({node, ctx}) ->
+              check: ({node, ctx}) ~>
                 name = node.getAttribute(\data-name)
                 desc = ctx.description or ctx
                 node.classList.toggle \active, (lc.value[desc] == name)
+                node.classList.toggle \disabled, is-readonly!
             action: click:
               check: ({node, ctx, views}) ~>
-                if !!@mod.info.meta.readonly => return
+                if is-readonly! => return
                 name = node.getAttribute(\data-name)
                 desc = ctx.description or ctx
                 lc.value[desc] = if lc.value[desc] == name => '' else name

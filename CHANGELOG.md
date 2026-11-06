@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.0.1
+
+ - fix bug: answers can still be changed in view mode. treat view mode as readonly
+
+
 ## v2.0.0
 
  - tweak DOM based on updated `@makeform/common` DOM structure.
