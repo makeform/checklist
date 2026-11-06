@@ -1,8 +1,29 @@
 # Change Logs
 
-## v2.0.1
+## v3.0.4
 
  - fix bug: answers can still be changed in view mode. treat view mode as readonly
+
+
+## v3.0.3
+
+ - upgrade dependencies
+
+
+## v3.0.2
+
+ - fix bug: string can't be edited. use `fromCtx` to simplify this implementation
+ - upgrade dependencies
+
+
+## v3.0.1
+
+ - use cps-hover-host and cps-hover-reveal to replace cps-hover class
+
+
+## v3.0.0
+
+ - support `@grantdash/composer` host
 
 
 ## v2.0.0
