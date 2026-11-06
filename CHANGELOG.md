@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.0.4
+
+ - fix bug: answers can still be changed in view mode. treat view mode as readonly
+
+
 ## v3.0.3
 
  - upgrade dependencies

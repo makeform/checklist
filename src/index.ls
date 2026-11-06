@@ -50,6 +50,8 @@ mod = ({root, ctx, data, parent, i18n, t}) ->
   init: ->
     lc := @mod.child
     lc.value = {}
+    # answers can't be changed when widget is readonly or in view mode
+    is-readonly = ~> !!hitf!get!readonly or @mode! == \view
     @on \change, (v) ~>
       lc.value = {} <<< (v or {})
       lc.view.render!
@@ -114,6 +116,7 @@ mod = ({root, ctx, data, parent, i18n, t}) ->
               check: ({node, ctx}) ->
                 [name, key] = [node.dataset.name, getkey ctx]
                 node.classList.toggle \active, (lc.value[key] == name)
+                node.classList.toggle \disabled, is-readonly!
             action:
               change:
                 checktype: ({node, ctx}) ->
@@ -125,7 +128,7 @@ mod = ({root, ctx, data, parent, i18n, t}) ->
                   hitf!set!
                 name: hitf!edit path: \description, from-ctx: true
                 check: ({node, ctx, views}) ~>
-                  if !!hitf!get!readonly => return
+                  if is-readonly! => return
                   [name, key] = [node.dataset.name, getkey ctx]
                   lc.value[key] = if lc.value[key] == name => '' else name
                   views.0.render!
